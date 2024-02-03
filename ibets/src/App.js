@@ -1,6 +1,10 @@
+import { useState } from "react";
+import Europe from "./components/Europe";
+import Uefa from "./components/Uefa";
+import Intercontinental from "./components/Intercontinental";
+import International from "./components/International";
+import Intertoto from "./components/Intertoto";
 
-function App() {
-  
   const matchs = [
     'Кубок европейских чемпионов',
     'Кубок УЕФА', 
@@ -9,17 +13,42 @@ function App() {
     'Кубок Интертото'
   ];
 
-  let list = matchs.map((match, index) => {
-    return <li key={index}>
-      {match}
-    </li>
-  });
+function App() {
+  const [europe, setEurope] = useState(false);
+  const [uefa, setUefa] = useState(false);
+  const [intercontinental, setIntercontinental] = useState(false);
+  const [international, setInternational] = useState(false);
+  const [intertoto, setIntertoto] = useState(false);
+  
+  const listItems = <ul>
+    <li onClick={() => setEurope(true)}>{matchs[0]}</li>
+    <li onClick={() => setUefa(true)}>{matchs[1]}</li>
+    <li onClick={() => setIntercontinental(true)}>{matchs[2]}</li>
+    <li onClick={() => setInternational(true)}>{matchs[3]}</li>
+    <li onClick={() => setIntertoto(true)}>{matchs[4]}</li>
+  </ul>;
+
+  const ArrModuls = [
+    {status: europe, tag: <Europe />},
+    {status: uefa, tag: <Uefa />},
+    {status: intercontinental, tag: <Intercontinental />},
+    {status: international, tag: <International />},
+    {status: intertoto, tag: <Intertoto />},
+  ];
+
+function show() {
+  for (let elem of ArrModuls) {
+      if (elem.status) {
+          return elem.tag;
+      }
+  }
+
+  return listItems;
+}
 
   return (
     <div>
-      <ul>
-        {list}
-      </ul>
+      {show()}
     </div>
   );
 }
