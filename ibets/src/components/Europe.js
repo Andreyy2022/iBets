@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Europe() {
-    const [radioValue, setRadoiValue] = useState(1);
+    const [value, setValue] = useState('');
 
     const text = `В Кубке европейских чемпионов учавствуют команды "Реал Мадрит" (Испания) и "Милан"(Италия). 
         Футбольный чемпионат пройдет ${matchDate()} в Испании.`
@@ -14,36 +14,57 @@ function Europe() {
     }
 
     function changeHandler(event) {
-		setRadoiValue(event.target.value);
+		setValue(event.target.value);
+        showButton();
 	}
-	
+
+    function showButton() {
+        return value ? <button>Сделать ставку</button> : '';
+    }
+
 	const outputRadio = <div>
-		<input
-			type="radio"
-			name="radio"
-			radioValue="1"
-			checked={radioValue == '1' ? true : false}
-			onChange={changeHandler}
-		/>
-		<input
-			type="radio"
-			name="radio"
-			radioValue="2"
-			checked={radioValue == '2' ? true : false}
-			onChange={changeHandler}
-		/>
-		<input
-			type="radio"
-			name="radio"
-			radioValue="3"
-			checked={radioValue == '3' ? true : false}
-			onChange={changeHandler}
-		/>
+        <label> Ставки на спорт:
+            <br/>
+            <div>
+                <input
+                    type = "radio"
+                    name = "radio"
+                    value = "1"
+                    checked = {value == '1' ? true : false}
+                    onChange = {changeHandler}
+                />
+                <label>на победу хозяев</label>
+            </div>
+            <div>
+                <input
+                    type = "radio"
+                    name = "radio"
+                    value = "2"
+                    checked = {value == '2' ? true : false}
+                    onChange = {changeHandler}
+                />
+                <label>на ничью</label>
+            </div>
+            <div>
+                <input
+                    type = "radio"
+                    name = "radio"
+                    value = "3"
+                    checked = {value == '3' ? true : false}
+                    onChange = {changeHandler}
+                />
+                <label>на победу гостей</label>
+            </div>
+        </label>    
 	</div>
+
+
 
     return <div>
         <div>{text}</div>
+        <br/>
         <div>{outputRadio}</div>
+        {showButton()}
     </div>
 }
 
