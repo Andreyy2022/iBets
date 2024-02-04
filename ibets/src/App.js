@@ -14,15 +14,7 @@ import Intertoto from "./components/Intertoto";
   ];
 
   const choicePoints = ['на победу хозяев', 'на ничью', 'на победу гостей'];
-/*
-  const choices = [
-    {id: 1, match: matchs[0], bet: ''},
-    {id: 2, match: matchs[1], bet: ''},
-    {id: 3, match: matchs[2], bet: ''},
-    {id: 4, match: matchs[3], bet: ''},
-    {id: 5, match: matchs[4], bet: ''},
-  ];
-*/
+
 function App() {
   const [europe, setEurope] = useState(false);
   const [uefa, setUefa] = useState(false);
@@ -43,6 +35,8 @@ function App() {
 
   function change(prop, value) {
     setValueChoice({...valueChoice, [prop]: value});
+    
+    console.log (valueChoice);
  }
 
   const listItems = <ul>
@@ -61,7 +55,6 @@ function App() {
       change={change}
       matchs={matchs}
       choicePoints={choicePoints}
-      showBet={showBet}
       />},
     {status: uefa, tag: <Uefa homePageUefa={homePageUefa} />},
     {status: intercontinental, tag: <Intercontinental homePageIntercontinental={homePageIntercontinental} />},
@@ -79,10 +72,12 @@ function App() {
     return listItems;
   }
 
-  function homePageEurope(match, valueRadio) {
-    change('match', match);
-    change('bet', showBet(valueRadio));
+  function homePageEurope(prop1, match, prop2, valueRadio) {
+    change(prop1, match);
+    change(prop2, betRadio(valueRadio));
     setEurope(false);
+
+    console.log(valueChoice);
   }
 
   function homePageUefa() {
@@ -101,11 +96,6 @@ function App() {
     setIntertoto(false);
   }
 
-  function showBet(match, valueRadio) {
-    change('match', match);
-    change('bet', betRadio(valueRadio));
-  }
-
   function betRadio(valueRadio) {
     return valueRadio == '1' ? choicePoints[0] :
     valueRadio == '2' ? choicePoints[1] :
@@ -116,7 +106,6 @@ function App() {
   return (
     <div>
       {show()}
-      {console.log(valueChoice)}
     </div>
   );
 }

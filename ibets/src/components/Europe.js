@@ -3,8 +3,6 @@ import { useState } from "react";
 function Europe({homePageEurope, valueChoice, setValueChoice, change, matchs, choicePoints, showBet}) {
     const [value, setValue] = useState('');
 
-//    const choicePoints = ['на победу хозяев', 'на ничью', 'на победу гостей'];
-
     const text = `В Кубке европейских чемпионов учавствуют команды "Реал Мадрит" (Испания) и "Милан"(Италия). 
         Футбольный чемпионат пройдет ${matchDate()} в Испании.`
 
@@ -21,14 +19,9 @@ function Europe({homePageEurope, valueChoice, setValueChoice, change, matchs, ch
 	}
 
     function showButton() {
-        return value ? <button onClick={() => homePageEurope(matchs[0], value)}>Сделать ставку</button> : '';
+        return value ? <button onClick={() => homePageEurope('match', matchs[0], 'bet', value)}>Сделать ставку</button> : '';
     }
-/*
-    function showBet() {
-        change('match', matchs[0]);
-        change('bet', );
-    }
-*/
+
 	const outputRadio = <div>
         <label> Ставки на спорт:
             <br/>
