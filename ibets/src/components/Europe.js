@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Europe() {
+function Europe({homePageEurope}) {
     const [value, setValue] = useState('');
 
     const text = `В Кубке европейских чемпионов учавствуют команды "Реал Мадрит" (Испания) и "Милан"(Италия). 
@@ -19,7 +19,7 @@ function Europe() {
 	}
 
     function showButton() {
-        return value ? <button>Сделать ставку</button> : '';
+        return value ? <button onClick={homePageEurope}>Сделать ставку</button> : '';
     }
 
 	const outputRadio = <div>

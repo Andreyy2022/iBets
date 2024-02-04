@@ -29,22 +29,42 @@ function App() {
   </ul>;
 
   const ArrModuls = [
-    {status: europe, tag: <Europe />},
+    {status: europe, tag: <Europe homePageEurope={homePageEurope} />},
     {status: uefa, tag: <Uefa />},
     {status: intercontinental, tag: <Intercontinental />},
     {status: international, tag: <International />},
     {status: intertoto, tag: <Intertoto />},
   ];
 
-function show() {
-  for (let elem of ArrModuls) {
-      if (elem.status) {
-          return elem.tag;
-      }
+  function show() {
+    for (let elem of ArrModuls) {
+        if (elem.status) {
+            return elem.tag;
+        }
+    }
+
+    return listItems;
   }
 
-  return listItems;
-}
+  function homePageEurope() {
+    setEurope(false);
+  }
+
+  function homePageUefa() {
+    setUefa(false);
+  }
+
+  function homePageIntercontinental() {
+    setIntercontinental(false);
+  }
+
+  function homePageInternational() {
+    setInternational(false);
+  }
+
+  function homePageIntertoto() {
+    setIntertoto(false);
+  }
 
   return (
     <div>
