@@ -1,7 +1,4 @@
-import { useState } from "react";
-
-function Europe({homePageEurope}) {
-    const [value, setValue] = useState('');
+function Europe({homePageEurope, value, setValue}) {
 
     const text = `В Кубке европейских чемпионов учавствуют команды "Реал Мадрит" (Испания) и "Милан"(Италия). 
         Футбольный чемпионат пройдет ${matchDate()} в Испании.`
@@ -57,8 +54,6 @@ function Europe({homePageEurope}) {
             </div>
         </label>    
 	</div>
-
-
 
     return <div>
         <div>{text}</div>
