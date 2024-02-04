@@ -13,15 +13,13 @@ import Intertoto from "./components/Intertoto";
     'Кубок Интертото'
   ];
 
-  const choice = [
+  const choices = [
     {id: 1, match: matchs[0], bet: ''},
     {id: 2, match: matchs[1], bet: ''},
     {id: 3, match: matchs[2], bet: ''},
     {id: 4, match: matchs[3], bet: ''},
     {id: 5, match: matchs[4], bet: ''},
   ];
-
-  console.log(choice);
 
 function App() {
   const [europe, setEurope] = useState(false);
@@ -31,8 +29,12 @@ function App() {
   const [intertoto, setIntertoto] = useState(false);
 
   const [value, setValue] = useState('');
-
-  
+  const [valueChoice, setValueChoice] = useState(choices);
+/*
+  function madeChoice() {
+    setValueChoice()
+  }
+*/  
   const listItems = <ul>
     <li onClick={() => setEurope(true)}>{matchs[0]}</li>
     <li onClick={() => setUefa(true)}>{matchs[1]}</li>
