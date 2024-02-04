@@ -12,6 +12,8 @@ import Intertoto from "./components/Intertoto";
     'Клубный чемпионат мира', 
     'Кубок Интертото'
   ];
+
+  const choicePoints = ['на победу хозяев', 'на ничью', 'на победу гостей'];
 /*
   const choices = [
     {id: 1, match: matchs[0], bet: ''},
@@ -28,20 +30,20 @@ function App() {
   const [international, setInternational] = useState(false);
   const [intertoto, setIntertoto] = useState(false);
 
-//  const [valueChoice, setValueChoice] = useState(choices);
-/*
-  function madeChoice() {
-    setValueChoice()
-  }
-*/ 
+  const [valueChoice, setValueChoice] = useState(getBet());
 
   function getBet() {
     let betObj;
+
     return betObj = {
       match: '',
       bet: ''
     };
   }
+
+  function change(prop, value) {
+    setValueChoice({...valueChoice, [prop]: value});
+ }
 
   const listItems = <ul>
     <li onClick={() => setEurope(true)}>{matchs[0]}</li>
@@ -52,7 +54,15 @@ function App() {
   </ul>;
 
   const ArrModuls = [
-    {status: europe, tag: <Europe homePageEurope={homePageEurope} />},
+    {status: europe, tag: 
+      <Europe homePageEurope={homePageEurope} 
+      valueChoice={valueChoice} 
+      setValueChoice={setValueChoice}
+      change={change}
+      matchs={matchs}
+      choicePoints={choicePoints}
+      showBet={showBet}
+      />},
     {status: uefa, tag: <Uefa homePageUefa={homePageUefa} />},
     {status: intercontinental, tag: <Intercontinental homePageIntercontinental={homePageIntercontinental} />},
     {status: international, tag: <International homePageInternational={homePageInternational} />},
@@ -69,7 +79,9 @@ function App() {
     return listItems;
   }
 
-  function homePageEurope() {
+  function homePageEurope(match, valueRadio) {
+    change('match', match);
+    change('bet', showBet(valueRadio));
     setEurope(false);
   }
 
@@ -89,9 +101,22 @@ function App() {
     setIntertoto(false);
   }
 
+  function showBet(match, valueRadio) {
+    change('match', match);
+    change('bet', betRadio(valueRadio));
+  }
+
+  function betRadio(valueRadio) {
+    return valueRadio == '1' ? choicePoints[0] :
+    valueRadio == '2' ? choicePoints[1] :
+    valueRadio == '3' ? choicePoints[1] :
+    '';
+  }
+
   return (
     <div>
       {show()}
+      {console.log(valueChoice)}
     </div>
   );
 }

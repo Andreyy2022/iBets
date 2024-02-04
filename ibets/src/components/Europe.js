@@ -1,7 +1,9 @@
 import { useState } from "react";
 
-function Europe({homePageEurope}) {
+function Europe({homePageEurope, valueChoice, setValueChoice, change, matchs, choicePoints, showBet}) {
     const [value, setValue] = useState('');
+
+//    const choicePoints = ['на победу хозяев', 'на ничью', 'на победу гостей'];
 
     const text = `В Кубке европейских чемпионов учавствуют команды "Реал Мадрит" (Испания) и "Милан"(Италия). 
         Футбольный чемпионат пройдет ${matchDate()} в Испании.`
@@ -19,9 +21,14 @@ function Europe({homePageEurope}) {
 	}
 
     function showButton() {
-        return value ? <button onClick={homePageEurope}>Сделать ставку</button> : '';
+        return value ? <button onClick={() => homePageEurope(matchs[0], value)}>Сделать ставку</button> : '';
     }
-
+/*
+    function showBet() {
+        change('match', matchs[0]);
+        change('bet', );
+    }
+*/
 	const outputRadio = <div>
         <label> Ставки на спорт:
             <br/>
@@ -33,7 +40,7 @@ function Europe({homePageEurope}) {
                     checked = {value == '1' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на победу хозяев</label>
+                <label>{choicePoints[0]}</label>
             </div>
             <div>
                 <input
@@ -43,7 +50,7 @@ function Europe({homePageEurope}) {
                     checked = {value == '2' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на ничью</label>
+                <label>{choicePoints[1]}</label>
             </div>
             <div>
                 <input
@@ -53,7 +60,7 @@ function Europe({homePageEurope}) {
                     checked = {value == '3' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на победу гостей</label>
+                <label>{choicePoints[2]}</label>
             </div>
         </label>    
 	</div>
