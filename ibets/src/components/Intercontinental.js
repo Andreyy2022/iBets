@@ -1,4 +1,7 @@
-function Intercontinental({homePageIntercontinental, value, setValue}) {
+import { useState } from "react";
+
+function Intercontinental({homePageIntercontinental}) {
+    const [value, setValue] = useState('');
 
     const text = `В Межконтинентальном кубке учавствуют команды "Бавария" (Германия) и "Ливерпуль"(Англия). 
         Футбольный чемпионат пройдет ${matchDate()} в Англии.`

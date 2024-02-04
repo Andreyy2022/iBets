@@ -1,4 +1,7 @@
-function Europe({homePageEurope, value, setValue}) {
+import { useState } from "react";
+
+function Europe({homePageEurope}) {
+    const [value, setValue] = useState('');
 
     const text = `В Кубке европейских чемпионов учавствуют команды "Реал Мадрит" (Испания) и "Милан"(Италия). 
         Футбольный чемпионат пройдет ${matchDate()} в Испании.`

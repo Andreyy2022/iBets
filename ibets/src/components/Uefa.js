@@ -1,4 +1,7 @@
-function Uefa({homePageUefa, value, setValue}) {
+import { useState } from "react";
+
+function Uefa({homePageUefa}) {
+    const [value, setValue] = useState('');
 
     const text = `В Кубке УЕФА учавствуют команды "Галатасарай" (Турция) и "Гётеборг"(Швеция). 
         Футбольный чемпионат пройдет ${matchDate()} в Турции.`

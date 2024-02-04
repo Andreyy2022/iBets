@@ -12,7 +12,7 @@ import Intertoto from "./components/Intertoto";
     'Клубный чемпионат мира', 
     'Кубок Интертото'
   ];
-
+/*
   const choices = [
     {id: 1, match: matchs[0], bet: ''},
     {id: 2, match: matchs[1], bet: ''},
@@ -20,7 +20,7 @@ import Intertoto from "./components/Intertoto";
     {id: 4, match: matchs[3], bet: ''},
     {id: 5, match: matchs[4], bet: ''},
   ];
-
+*/
 function App() {
   const [europe, setEurope] = useState(false);
   const [uefa, setUefa] = useState(false);
@@ -28,13 +28,21 @@ function App() {
   const [international, setInternational] = useState(false);
   const [intertoto, setIntertoto] = useState(false);
 
-  const [value, setValue] = useState('');
-  const [valueChoice, setValueChoice] = useState(choices);
+//  const [valueChoice, setValueChoice] = useState(choices);
 /*
   function madeChoice() {
     setValueChoice()
   }
-*/  
+*/ 
+
+  function getBet() {
+    let betObj;
+    return betObj = {
+      match: '',
+      bet: ''
+    };
+  }
+
   const listItems = <ul>
     <li onClick={() => setEurope(true)}>{matchs[0]}</li>
     <li onClick={() => setUefa(true)}>{matchs[1]}</li>
@@ -44,11 +52,11 @@ function App() {
   </ul>;
 
   const ArrModuls = [
-    {status: europe, tag: <Europe homePageEurope={homePageEurope} value={value} setValue={setValue} />},
-    {status: uefa, tag: <Uefa homePageUefa={homePageUefa} value={value} setValue={setValue} />},
-    {status: intercontinental, tag: <Intercontinental homePageIntercontinental={homePageIntercontinental} value={value} setValue={setValue} />},
-    {status: international, tag: <International homePageInternational={homePageInternational} value={value} setValue={setValue} />},
-    {status: intertoto, tag: <Intertoto homePageIntertoto={homePageIntertoto} value={value} setValue={setValue} />},
+    {status: europe, tag: <Europe homePageEurope={homePageEurope} />},
+    {status: uefa, tag: <Uefa homePageUefa={homePageUefa} />},
+    {status: intercontinental, tag: <Intercontinental homePageIntercontinental={homePageIntercontinental} />},
+    {status: international, tag: <International homePageInternational={homePageInternational} />},
+    {status: intertoto, tag: <Intertoto homePageIntertoto={homePageIntertoto} />},
   ];
 
   function show() {

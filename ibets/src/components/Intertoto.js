@@ -1,5 +1,8 @@
-function Intertoto({homePageIntertoto, value, setValue}) {
+import { useState } from "react";
 
+function Intertoto({homePageIntertoto}) {
+    const [value, setValue] = useState('');
+    
     const text = `В Кубке Инертото учавствуют команды "Олимпик марсель" (Франция) и "Мехелен"(Бельгия). 
         Футбольный чемпионат пройдет ${matchDate()} во Франции.`
 

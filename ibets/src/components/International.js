@@ -1,4 +1,7 @@
-function International({homePageInternational, value, setValue}) {
+import { useState } from "react";
+
+function International({homePageInternational}) {
+    const [value, setValue] = useState('');
 
     const text = `В Клубном чепионате Мира учавствуют команды "Аякс" (Нидерланды) и "Порту"(Португалия). 
         Футбольный чемпионат пройдет ${matchDate()} в Нидерландах.`
