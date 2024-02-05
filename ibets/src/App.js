@@ -35,9 +35,7 @@ function App() {
 
   function change(prop, value) {
     setValueChoice({...valueChoice, [prop]: value});
-    
-    console.log (valueChoice);
- }
+  }
 
   const listItems = <ul>
     <li onClick={() => setEurope(true)}>{matchs[0]}</li>
@@ -49,12 +47,14 @@ function App() {
 
   const ArrModuls = [
     {status: europe, tag: 
-      <Europe homePageEurope={homePageEurope} 
+      <Europe 
+      homePageEurope={homePageEurope} 
       valueChoice={valueChoice} 
       setValueChoice={setValueChoice}
       change={change}
       matchs={matchs}
       choicePoints={choicePoints}
+      betRadio={betRadio}
       />},
     {status: uefa, tag: <Uefa homePageUefa={homePageUefa} />},
     {status: intercontinental, tag: <Intercontinental homePageIntercontinental={homePageIntercontinental} />},
@@ -72,12 +72,9 @@ function App() {
     return listItems;
   }
 
-  function homePageEurope(prop1, match, prop2, valueRadio) {
-    change(prop1, match);
-    change(prop2, betRadio(valueRadio));
+  function homePageEurope(prop, valueRadio) {
+    change(prop, betRadio(valueRadio));
     setEurope(false);
-
-    console.log(valueChoice);
   }
 
   function homePageUefa() {
@@ -105,7 +102,14 @@ function App() {
 
   return (
     <div>
+      <div>
+        Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.
+      </div>
+      <div>
       {show()}
+
+      {console.log(valueChoice)}
+      </div>
     </div>
   );
 }
