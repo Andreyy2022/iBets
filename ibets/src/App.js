@@ -5,15 +5,15 @@ import Intercontinental from "./components/Intercontinental";
 import International from "./components/International";
 import Intertoto from "./components/Intertoto";
 
-  const matchs = [
-    'Кубок европейских чемпионов',
-    'Кубок УЕФА', 
-    'Межконтинентальный кубок', 
-    'Клубный чемпионат мира', 
-    'Кубок Интертото'
-  ];
+const matchs = [
+  'Кубок европейских чемпионов',
+  'Кубок УЕФА', 
+  'Межконтинентальный кубок', 
+  'Клубный чемпионат мира', 
+  'Кубок Интертото'
+];
 
-  const choicePoints = ['на победу хозяев', 'на ничью', 'на победу гостей'];
+const choicePoints = ['на победу хозяев', 'на ничью', 'на победу гостей'];
 
 function App() {
   const [europe, setEurope] = useState(false);
@@ -99,12 +99,30 @@ function App() {
     valueRadio == '3' ? choicePoints[1] :
     '';
   }
+/*
+  function message() {
+    if (valueChoice) {
+      <div>Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.</div>;
+      setTimeout( setValueChoice(getBet) , 4000);
+    }
+  }
+*/
+/*
+  useEffect(() => {
+    function message() {
+      if (valueChoice) {
+        <div>Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.</div>;
+        setTimeout( setValueChoice(getBet) , 4000);
+      }
+    }
+    window.addEventListener('hover', message);
+}, []);
+*/
 
   return (
     <div>
-      <div>
-        Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.
-      </div>
+
+
       <div>
       {show()}
 
