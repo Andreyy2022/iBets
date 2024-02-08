@@ -99,14 +99,18 @@ function App() {
     valueRadio == '3' ? choicePoints[1] :
     '';
   }
-/*
+
   function message() {
     if (valueChoice) {
       <div>Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.</div>;
       setTimeout( setValueChoice(getBet) , 4000);
     }
   }
-*/
+
+
+  function clear() {
+    setTimeout( setValueChoice(getBet) , 10000 );
+  }
 /*
   useEffect(() => {
     function message() {
@@ -121,6 +125,9 @@ function App() {
 
   return (
     <div>
+      <div onLoad={() => clear()}>
+        {message()}
+      </div>
 
 
       <div>
