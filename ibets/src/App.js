@@ -29,7 +29,8 @@ function App() {
 
     return betObj = {
       match: '',
-      bet: ''
+      bet: '',
+      showChoice: false
     };
   }
 
@@ -101,39 +102,27 @@ function App() {
   }
 
   function message() {
-    if (valueChoice) {
+    if (valueChoice.match) {
       <div>Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.</div>;
-      setTimeout( setValueChoice(getBet) , 4000);
     }
-  }
-
-
-  function clear() {
-    setTimeout( setValueChoice(getBet) , 10000 );
   }
 /*
-  useEffect(() => {
-    function message() {
-      if (valueChoice) {
-        <div>Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.</div>;
-        setTimeout( setValueChoice(getBet) , 4000);
-      }
-    }
-    window.addEventListener('hover', message);
-}, []);
+  function newBet() {
+    setValueChoice( getBet() );
+  }
 */
-
   return (
     <div>
-      <div onLoad={() => clear()}>
+      <div>
         {message()}
       </div>
-
-
       <div>
       {show()}
-
       {console.log(valueChoice)}
+      </div>
+      <div>
+{/*        {valueChoice.showChoice ? <button onClick={newBet}>Сделать новую ставку</button> : ''}                     */}
+        
       </div>
     </div>
   );
