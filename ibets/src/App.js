@@ -103,14 +103,14 @@ function App() {
 
   function message() {
     if (valueChoice.match) {
-      <div>Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.</div>;
+      if (europe === false && uefa === false && intercontinental === false && international === false && intertoto === false) {
+        return <div>Спасибо, Ваша ставка "{valueChoice.bet}" на игру "{valueChoice.match}" принята.</div>;
+      } else {
+        return '';
+      }
     }
   }
-/*
-  function newBet() {
-    setValueChoice( getBet() );
-  }
-*/
+
   return (
     <div>
       <div>
@@ -119,10 +119,6 @@ function App() {
       <div>
       {show()}
       {console.log(valueChoice)}
-      </div>
-      <div>
-{/*        {valueChoice.showChoice ? <button onClick={newBet}>Сделать новую ставку</button> : ''}                     */}
-        
       </div>
     </div>
   );
