@@ -23,8 +23,9 @@ function Europe({homePageEurope, valueChoice, setValueChoice, matchs, choicePoin
         return value ? <button onClick={() => homePageEurope('bet', value)}>Сделать ставку</button> : '';
     }
 
-	const outputRadio = <div>
+	const outputRadio = <div >
         <label>Ставка на спорт:
+        <br/>
             <div className="listItemsCSScomp">
                 <div>
                     <input

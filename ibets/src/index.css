@@ -16,7 +16,7 @@ h2, .messageCSS, .showCSS {
   display: inline-block;
 }
 
-.showCSS>.listItemsCSScomp {
+.listItemsCSScomp {
   text-align: start;
   display: inline-block;
 }
