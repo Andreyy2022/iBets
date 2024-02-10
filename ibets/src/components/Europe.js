@@ -24,7 +24,7 @@ function Europe({homePageEurope, valueChoice, setValueChoice, matchs, choicePoin
     }
 
 	const outputRadio = <div>
-        <label> Ставки на спорт:
+        <label>Ставка на спорт:
             <br/>
             <div>
                 <input

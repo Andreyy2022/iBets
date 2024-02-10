@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function International({homePageInternational}) {
+function International({homePageInternational, valueChoice, setValueChoice, matchs, choicePoints}) {
     const [value, setValue] = useState('');
 
     const text = `В Клубном чепионате Мира учавствуют команды "Аякс" (Нидерланды) и "Порту"(Португалия). 
@@ -16,14 +16,15 @@ function International({homePageInternational}) {
     function changeHandler(event) {
 		setValue(event.target.value);
         showButton();
+        setValueChoice({...valueChoice, ['match']: matchs[3]});
 	}
 
     function showButton() {
-        return value ? <button onClick={homePageInternational}>Сделать ставку</button> : '';
+        return value ? <button onClick={() => homePageInternational('bet', value)}>Сделать ставку</button> : '';
     }
 
 	const outputRadio = <div>
-        <label> Ставки на спорт:
+        <label>Ставка на спорт:
             <br/>
             <div>
                 <input
@@ -33,7 +34,7 @@ function International({homePageInternational}) {
                     checked = {value == '1' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на победу хозяев</label>
+                <label>{choicePoints[0]}</label>
             </div>
             <div>
                 <input
@@ -43,7 +44,7 @@ function International({homePageInternational}) {
                     checked = {value == '2' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на ничью</label>
+                <label>{choicePoints[1]}</label>
             </div>
             <div>
                 <input
@@ -53,7 +54,7 @@ function International({homePageInternational}) {
                     checked = {value == '3' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на победу гостей</label>
+                <label>{choicePoints[2]}</label>
             </div>
         </label>    
 	</div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Intertoto({homePageIntertoto}) {
+function Intertoto({homePageIntertoto, valueChoice, setValueChoice, matchs, choicePoints}) {
     const [value, setValue] = useState('');
     
     const text = `В Кубке Инертото учавствуют команды "Олимпик марсель" (Франция) и "Мехелен"(Бельгия). 
@@ -16,14 +16,15 @@ function Intertoto({homePageIntertoto}) {
     function changeHandler(event) {
 		setValue(event.target.value);
         showButton();
+        setValueChoice({...valueChoice, ['match']: matchs[4]});
 	}
 
     function showButton() {
-        return value ? <button onClick={homePageIntertoto}>Сделать ставку</button> : '';
+        return value ? <button onClick={() => homePageIntertoto('bet', value)}>Сделать ставку</button> : '';
     }
 
 	const outputRadio = <div>
-        <label> Ставки на спорт:
+        <label>Ставка на спорт:
             <br/>
             <div>
                 <input
@@ -33,7 +34,7 @@ function Intertoto({homePageIntertoto}) {
                     checked = {value == '1' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на победу хозяев</label>
+                <label>{choicePoints[0]}</label>
             </div>
             <div>
                 <input
@@ -43,7 +44,7 @@ function Intertoto({homePageIntertoto}) {
                     checked = {value == '2' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на ничью</label>
+                <label>{choicePoints[1]}</label>
             </div>
             <div>
                 <input
@@ -53,7 +54,7 @@ function Intertoto({homePageIntertoto}) {
                     checked = {value == '3' ? true : false}
                     onChange = {changeHandler}
                 />
-                <label>на победу гостей</label>
+                <label>{choicePoints[2]}</label>
             </div>
         </label>    
 	</div>
