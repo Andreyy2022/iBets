@@ -20,7 +20,7 @@ function Europe({homePageEurope, valueChoice, setValueChoice, matchs, choicePoin
 	}
 
     function showButton() {
-        return value ? <button onClick={() => homePageEurope('bet', value)}>Сделать ставку</button> : '';
+        return value ? <button className="btn" onClick={() => homePageEurope('bet', value)}>Сделать ставку</button> : '';
     }
 
 	const outputRadio = <div >
@@ -65,7 +65,7 @@ function Europe({homePageEurope, valueChoice, setValueChoice, matchs, choicePoin
         <div>{text}</div>
         <br/>
         <div>{outputRadio}</div>
-            {showButton()}
+        <div>{showButton()}</div>
     </div>
 }
 
