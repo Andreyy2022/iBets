@@ -156,7 +156,6 @@ function App() {
       <div className="showCSS">
         {show()}
       </div>
-      {console.log(valueChoice)}
     </div>
   );
 }
