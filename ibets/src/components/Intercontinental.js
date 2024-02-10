@@ -20,7 +20,7 @@ function Intercontinental({homePageIntercontinental, valueChoice, setValueChoice
 	}
 
     function showButton() {
-        return value ? <button onClick={() => homePageIntercontinental('bet', value)}>Сделать ставку</button> : '';
+        return value ? <button className="btn" onClick={() => homePageIntercontinental('bet', value)}>Сделать ставку</button> : '';
     }
 
 	const outputRadio = <div>

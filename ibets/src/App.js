@@ -30,7 +30,6 @@ function App() {
     return betObj = {
       match: '',
       bet: '',
-      showChoice: false
     };
   }
 
@@ -127,9 +126,9 @@ function App() {
 
   function betRadio(valueRadio) {
     return valueRadio == '1' ? choicePoints[0] :
-    valueRadio == '2' ? choicePoints[1] :
-    valueRadio == '3' ? choicePoints[1] :
-    '';
+      valueRadio == '2' ? choicePoints[1] :
+      valueRadio == '3' ? choicePoints[2] :
+      '';
   }
 
   function message() {
@@ -153,6 +152,7 @@ function App() {
       <div className="showCSS">
         {show()}
       </div>
+      {console.log(valueChoice)}
     </div>
   );
 }

@@ -20,7 +20,7 @@ function International({homePageInternational, valueChoice, setValueChoice, matc
 	}
 
     function showButton() {
-        return value ? <button onClick={() => homePageInternational('bet', value)}>Сделать ставку</button> : '';
+        return value ? <button className="btn" onClick={() => homePageInternational('bet', value)}>Сделать ставку</button> : '';
     }
 
 	const outputRadio = <div>

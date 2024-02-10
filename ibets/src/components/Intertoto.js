@@ -20,7 +20,7 @@ function Intertoto({homePageIntertoto, valueChoice, setValueChoice, matchs, choi
 	}
 
     function showButton() {
-        return value ? <button onClick={() => homePageIntertoto('bet', value)}>Сделать ставку</button> : '';
+        return value ? <button className="btn" onClick={() => homePageIntertoto('bet', value)}>Сделать ставку</button> : '';
     }
 
 	const outputRadio = <div>

@@ -20,7 +20,7 @@ function Uefa({homePageUefa, valueChoice, setValueChoice, matchs, choicePoints})
 	}
 
     function showButton() {
-        return value ? <button onClick={() => homePageUefa('bet', value)}>Сделать ставку</button> : '';
+        return value ? <button className="btn" onClick={() => homePageUefa('bet', value)}>Сделать ставку</button> : '';
     }
 
 	const outputRadio = <div>
