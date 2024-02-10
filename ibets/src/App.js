@@ -38,7 +38,7 @@ function App() {
     setValueChoice({...valueChoice, [prop]: value});
   }
 
-  const listItems = <ul>
+  const listItems = <ul className="listItemsCSS">
     <li onClick={() => setEurope(true)}>{matchs[0]}</li>
     <li onClick={() => setUefa(true)}>{matchs[1]}</li>
     <li onClick={() => setIntercontinental(true)}>{matchs[2]}</li>
@@ -144,11 +144,14 @@ function App() {
 
   return (
     <div>
-      <div>
+      <h2>
+        Ставки на спорт
+      </h2>
+      <div className="messageCSS">
         {message()}
       </div>
-      <div>
-      {show()}
+      <div className="showCSS">
+        {show()}
       </div>
     </div>
   );
