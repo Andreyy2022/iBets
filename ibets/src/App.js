@@ -108,19 +108,23 @@ function App() {
     setEurope(false);
   }
 
-  function homePageUefa() {
+  function homePageUefa(prop, valueRadio) {
+    change(prop, betRadio(valueRadio));
     setUefa(false);
   }
 
-  function homePageIntercontinental() {
+  function homePageIntercontinental(prop, valueRadio) {
+    change(prop, betRadio(valueRadio));
     setIntercontinental(false);
   }
 
-  function homePageInternational() {
+  function homePageInternational(prop, valueRadio) {
+    change(prop, betRadio(valueRadio));
     setInternational(false);
   }
 
-  function homePageIntertoto() {
+  function homePageIntertoto(prop, valueRadio) {
+    change(prop, betRadio(valueRadio));
     setIntertoto(false);
   }
 
