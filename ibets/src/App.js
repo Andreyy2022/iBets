@@ -47,20 +47,51 @@ function App() {
   </ul>;
 
   const ArrModuls = [
-    {status: europe, tag: 
-      <Europe 
+    {status: europe, 
+     tag: <Europe 
       homePageEurope={homePageEurope} 
       valueChoice={valueChoice} 
       setValueChoice={setValueChoice}
-      change={change}
       matchs={matchs}
       choicePoints={choicePoints}
-      betRadio={betRadio}
-      />},
-    {status: uefa, tag: <Uefa homePageUefa={homePageUefa} />},
-    {status: intercontinental, tag: <Intercontinental homePageIntercontinental={homePageIntercontinental} />},
-    {status: international, tag: <International homePageInternational={homePageInternational} />},
-    {status: intertoto, tag: <Intertoto homePageIntertoto={homePageIntertoto} />},
+      />
+    },
+    {status: uefa, 
+     tag: <Uefa 
+      homePageUefa={homePageUefa} 
+      valueChoice={valueChoice} 
+      setValueChoice={setValueChoice}
+      matchs={matchs}
+      choicePoints={choicePoints}
+      />
+    },
+    {status: intercontinental,
+     tag: <Intercontinental 
+      homePageIntercontinental={homePageIntercontinental}
+      valueChoice={valueChoice} 
+      setValueChoice={setValueChoice}
+      matchs={matchs}
+      choicePoints={choicePoints}
+      />
+    },
+    {status: international,
+     tag: <International 
+      homePageInternational={homePageInternational}
+      valueChoice={valueChoice} 
+      setValueChoice={setValueChoice}
+      matchs={matchs}
+      choicePoints={choicePoints} 
+      />
+    },
+    {status: intertoto, 
+     tag: <Intertoto 
+      homePageIntertoto={homePageIntertoto}
+      valueChoice={valueChoice} 
+      setValueChoice={setValueChoice}
+      matchs={matchs}
+      choicePoints={choicePoints}
+      />
+    },
   ];
 
   function show() {
@@ -118,7 +149,6 @@ function App() {
       </div>
       <div>
       {show()}
-      {console.log(valueChoice)}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Europe({homePageEurope, valueChoice, setValueChoice, change, matchs, choicePoints, showBet, betRadio}) {
+function Europe({homePageEurope, valueChoice, setValueChoice, matchs, choicePoints}) {
     const [value, setValue] = useState('');
 
     const text = `В Кубке европейских чемпионов учавствуют команды "Реал Мадрит" (Испания) и "Милан"(Италия). 
